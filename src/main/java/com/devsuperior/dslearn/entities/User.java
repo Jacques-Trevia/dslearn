@@ -1,6 +1,8 @@
 package com.devsuperior.dslearn.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +33,15 @@ public class User {
 			joinColumns = @JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles =  new HashSet<>();
+	
+	@OneToMany(mappedBy = "user")
+	private List<Notification> notification = new ArrayList<>();
+	
+	@ManyToMany
+	@JoinTable(name = "tb_user_offer",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "offer_id"))
+	private Set<Offer> offers = new HashSet<>();
 	
 	public User() {
 	}
@@ -71,6 +83,18 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public List<Notification> getNotification() {
+		return notification;
+	}
+
+	public Set<Offer> getOffers() {
+		return offers;
 	}
 
 	@Override
