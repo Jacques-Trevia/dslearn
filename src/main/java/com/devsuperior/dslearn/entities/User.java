@@ -35,7 +35,7 @@ public class User {
 	private Set<Role> roles =  new HashSet<>();
 	
 	@OneToMany(mappedBy = "user")
-	private List<Notification> notification = new ArrayList<>();
+	private List<Notification> notifications = new ArrayList<>();
 	
 	@ManyToMany
 	@JoinTable(name = "tb_user_offer",
@@ -89,8 +89,8 @@ public class User {
 		return roles;
 	}
 
-	public List<Notification> getNotification() {
-		return notification;
+	public List<Notification> getNotifications() {
+		return notifications;
 	}
 
 	public Set<Offer> getOffers() {
