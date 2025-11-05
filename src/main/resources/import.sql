@@ -32,3 +32,18 @@ INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, avai
 
 INSERT INTO tb_user_offer (user_id, offer_id) VALUES (1, 1);
 INSERT INTO tb_user_offer (user_id, offer_id) VALUES (2, 1);
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1', 1, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (1, 'material', 'qualquer video');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 2', 2, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (2, 'mate', 'qualquer video');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 3', 3, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (3, 'ma', 'qualquer video');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('tarefa 1', 4, 1);
+INSERT INTO tb_task (id, description, question_Count, approval_Count, weight, due_Date) VALUES (4, 'descri', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2024-07-25T13:00:00Z');
+
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
